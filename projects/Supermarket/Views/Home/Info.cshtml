@@ -1,0 +1,23 @@
+@model Supermarket.Models.Items
+@{
+    ViewData["Title"] = "Item Details";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">@Model.Decription</p>
+            <p class="card-text"><strong>Price:</strong> @Model.Price.ToString("C")</p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="@Url.Action("Index") class="btn btn-secondary">Back to List</a>
+        <a href="@Url.Action("Order", new { id = Model.Id })" class="btn btn-primary mt-auto">Order</a>
+    </div>
+</div>

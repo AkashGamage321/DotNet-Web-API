@@ -1,0 +1,35 @@
+@model IEnumerable<Bookshop.Models.BookInfo>
+
+@{
+    ViewData["Title"] = "Books Info";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Info" class="btn btn-primary">Create New</a>
+</p>
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">@book.Title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">by @book.Author</h6>
+                    <p class="card-text">
+                        <strong>Description:</strong> @book.Description<br>
+                        <strong>Price:</strong> $@book.Price<br>
+                        <strong>ID:</strong> @book.Id
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-secondary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

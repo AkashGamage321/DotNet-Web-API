@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Bookshop.Models.Books>
+
+@{
+    ViewData["Title"] = "Books List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Info" class="btn btn-primary">Create New</a>
+</p>
+<ul>
+    @foreach(var book in Model){
+        <li>@book.Id</li>
+        <li>@book.Title</li>
+    }
+</ul>
